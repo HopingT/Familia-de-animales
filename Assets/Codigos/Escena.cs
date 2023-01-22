@@ -14,6 +14,7 @@ public class Escena : MonoBehaviour
     
     public void Nexlevel(string level)
         {
+        Time.timeScale = 1f;
             SceneManager.LoadScene(level, LoadSceneMode.Single);
         }
     
