@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7266e84bc29d74a4f8a0b818846e00d5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _source: {instanceID: 0}
+  - _Levantar: {instanceID: 0}
+  - _tirar: {instanceID: 0}
+  - FormaCorrecta: {instanceID: 0}
+  - Piezas: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
