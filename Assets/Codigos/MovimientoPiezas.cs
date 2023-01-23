@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class MovimientoPiezas : MonoBehaviour
 {
-
-    
+    [SerializeField] private AudioClip _tomar, _soltar;
+    [SerializeField] private AudioSource _source;
+    public SpriteRenderer ColorCambiar;
+    public Color Rojo;
     public GameObject FormaCorrecta;
     public GameObject Piezas;
     private bool moving;
 
+
     private float posicionX;
     private float posicionY;
     private Vector3 reiniciarPosicion;
+    private bool Anclado;
+    public BoxCollider2D BoxCollider2D;
+   
     private bool Acabo;
     void Start()
     {
         reiniciarPosicion = transform.position;
+        ColorCambiar = GetComponent<SpriteRenderer>();
+       
     }
 
     // Update is called once per frame
@@ -38,7 +46,7 @@ public class MovimientoPiezas : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-           
+            _source.PlayOneShot(_tomar);
             Vector3 mousePos;
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -60,11 +68,20 @@ public class MovimientoPiezas : MonoBehaviour
         if (Distance < 1f)
         {
             Piezas.transform.position = FormaCorrecta.transform.position;
+            Anclado = true;
+            if (Anclado)
+            {
+                BoxCollider2D.enabled = false;
+
+                ColorCambiar.material.color = Color.green;
+            }
+
             Debug.Log("insertado correctamente");
             GameObject.Find("PointHandler").GetComponent<WinScript>().AddPoints();
         }
         else
         {
+            _source.PlayOneShot(_soltar);
             FormaCorrecta.transform.position = FormaCorrecta.transform.position ;
             Piezas.transform.position = reiniciarPosicion;
             Debug.Log("reiniciando");
