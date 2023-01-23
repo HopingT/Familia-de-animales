@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovimientoPiezas : MonoBehaviour
 {
-    [SerializeField] private AudioClip _tomar, _soltar;
+    [SerializeField] private AudioClip _tomar, _soltar, _correcto;
     [SerializeField] private AudioSource _source;
     public SpriteRenderer ColorCambiar;
     public Color Rojo;
@@ -68,6 +68,7 @@ public class MovimientoPiezas : MonoBehaviour
         if (Distance < 1f)
         {
             Piezas.transform.position = FormaCorrecta.transform.position;
+            _source.PlayOneShot(_correcto);
             Anclado = true;
             if (Anclado)
             {

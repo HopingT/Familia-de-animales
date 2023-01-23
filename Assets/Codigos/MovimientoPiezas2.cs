@@ -9,7 +9,7 @@ public class MovimientoPiezas2 : MonoBehaviour
     public SpriteRenderer ColorChange;
     public Color colorNuevo;
     [SerializeField] private AudioSource _source;
-    [SerializeField] private AudioClip _tomar, _soltar;
+    [SerializeField] private AudioClip _tomar, _soltar, _Corecto;
 
         public GameObject FormaCorrecta;
         public GameObject Piezas;
@@ -71,6 +71,7 @@ public class MovimientoPiezas2 : MonoBehaviour
             {
                 Piezas.transform.position = FormaCorrecta.transform.position;
                 Anclado = true;
+                _source.PlayOneShot(_Corecto);
                 if (Anclado)
                 {
                     BoxCollider2D.enabled = false;
