@@ -20,7 +20,7 @@ public class WinScript3 : MonoBehaviour
     {
         if (currentPoints >= 5)
         {
-            //Win
+            //Wi
 
             textoTrivia.SetActive(false);
             piezas.SetActive(false);
